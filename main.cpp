@@ -72,10 +72,7 @@ int main(int argc, char *argv[]) {
                 } else if (isnum) {
                     numc++;
                     isnum = false;
-                } else {
-                    isname = false;
-                    isnum = false;
-                }
+                } 
             }
             charPtr++;
         }
