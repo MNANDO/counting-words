@@ -1,0 +1,27 @@
+#include <iostream>
+#include <fstream>
+#include "string.h"
+
+int main(int argc, char *argv[]) {
+    std::istream* in = NULL;
+    std::ifstream file;
+	for( int i=1; i<argc; i++ ) {
+        std::string arg = argv[i];
+		if( in != NULL ) {
+            std::cerr << "ONLY ONE FILE NAME ALLOWED" << std::endl;
+			return 0;
+		}
+		else {
+			file.open(arg.c_str());
+			if( file.is_open() == false ) {
+                std::cerr << "CANNOT OPEN " << arg << std::endl;
+				return 0;
+			}
+			in = &file;
+		}
+	}
+	if(argc == 1) {
+		cerr << "Missing File Name." << endl;
+		return 0;
+	}
+}
