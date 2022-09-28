@@ -27,10 +27,7 @@ int main(int argc, char *argv[]) {
         // handle flag 
         if (argc == 3) {
             flag = argv[2];
-        } else {
-        // handle no flag
-
-        }
+        } 
     }
 
     /* std::string fname = "file"; */
@@ -60,6 +57,9 @@ int main(int argc, char *argv[]) {
                 else if (*charPtr == '+' || *charPtr == '-' || std::isdigit(*charPtr)) {
                     isnum = true;
                 }
+            }
+            else if (!std::isalpha(*charPtr) && !std::isdigit(*charPtr) && *charPtr != '_' && *charPtr != '@') {
+                isname = false;
             }
             else if (!std::isdigit(*charPtr)) {
                 isnum = false;
