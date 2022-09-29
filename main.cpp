@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
 
         /* std::cout << *charPtr << std::endl; */
         // Evaluate the first word
-        while (*charPtr != '\0' && *charPtr != '\n' && *charPtr != '\t') {
+        while (*charPtr != '\0' && *charPtr != '\n') {
             // check the first character in each line or the first character in each word
             if (charPtr == &line[0] || *(charPtr - 1) == ' ') {
                 if (*charPtr == '_' || std::isalpha(*charPtr)) {
