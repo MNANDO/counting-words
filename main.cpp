@@ -8,30 +8,30 @@ int main(int argc, char *argv[]) {
     std::ifstream file;
     std::string flag;
 
-	if(argc == 1) {
-        std::cerr << "Missing File Name." << std::endl;
-		return 0;
-	}
+	/* if(argc == 1) { */
+        /* std::cerr << "Missing File Name." << std::endl; */
+	/* 	return 0; */
+	/* } */
 
-    if (argc >= 2) {
-        // handle file 
-        std::string fname = argv[1];
-        file.open(fname.c_str());
-        if( file.is_open() == false ) {
-            std::cerr << "CANNOT OPEN " << fname << std::endl;
-            return 0;
-        }
+    /* if (argc >= 2) { */
+        /* // handle file */ 
+        /* std::string fname = argv[1]; */
+        /* file.open(fname.c_str()); */
+        /* if( file.is_open() == false ) { */
+            /* std::cerr << "CANNOT OPEN " << fname << std::endl; */
+            /* return 0; */
+        /* } */
 
-        in = &file;
+        /* in = &file; */
 
-        // handle flag 
-        if (argc == 3) {
-            flag = argv[2];
-        } 
-    }
+        /* // handle flag */ 
+        /* if (argc == 3) { */
+            /* flag = argv[2]; */
+        /* } */ 
+    /* } */
 
-    /* std::string fname = "file"; */
-    /* file.open(fname.c_str()); */
+    std::string fname = "file";
+    file.open(fname.c_str());
 
     int wordc = 0;
     int namec = 0;
@@ -48,20 +48,24 @@ int main(int argc, char *argv[]) {
 
         /* std::cout << *charPtr << std::endl; */
         // Evaluate the first word
-        while (*charPtr != '\0') {
+        while (*charPtr != '\0' && *charPtr != '\n' && *charPtr != '\t') {
             // check the first character in each line or the first character in each word
             if (charPtr == &line[0] || *(charPtr - 1) == ' ') {
                 if (*charPtr == '_' || std::isalpha(*charPtr)) {
                     isname = true; 
+                    charPtr++;
+                    continue;
                 } 
                 else if (*charPtr == '+' || *charPtr == '-' || std::isdigit(*charPtr)) {
                     isnum = true;
+                    charPtr++;
+                    continue;
                 }
             }
-            else if (!std::isalpha(*charPtr) && !std::isdigit(*charPtr) && *charPtr != '_' && *charPtr != '@') {
+            if (!std::isalpha(*charPtr) && !std::isdigit(*charPtr) && *charPtr != '_' && *charPtr != '@') {
                 isname = false;
             }
-            else if (!std::isdigit(*charPtr)) {
+            if (!std::isdigit(*charPtr)) {
                 isnum = false;
             }
             // once the next character is a space, evaluate the word and reset the status
