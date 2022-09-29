@@ -8,30 +8,30 @@ int main(int argc, char *argv[]) {
     std::ifstream file;
     std::string flag;
 
-	/* if(argc == 1) { */
-        /* std::cerr << "Missing File Name." << std::endl; */
-	/* 	return 0; */
-	/* } */
+	if(argc == 1) {
+        std::cerr << "Missing File Name." << std::endl;
+		return 0;
+	}
 
-    /* if (argc >= 2) { */
-        /* // handle file */ 
-        /* std::string fname = argv[1]; */
-        /* file.open(fname.c_str()); */
-        /* if( file.is_open() == false ) { */
-            /* std::cerr << "CANNOT OPEN " << fname << std::endl; */
-            /* return 0; */
-        /* } */
+    if (argc >= 2) {
+        // handle file 
+        std::string fname = argv[1];
+        file.open(fname.c_str());
+        if( file.is_open() == false ) {
+            std::cerr << "CANNOT OPEN " << fname << std::endl;
+            return 0;
+        }
 
-        /* in = &file; */
+        in = &file;
 
-        /* // handle flag */ 
-        /* if (argc == 3) { */
-            /* flag = argv[2]; */
-        /* } */ 
-    /* } */
+        // handle flag 
+        if (argc == 3) {
+            flag = argv[2];
+        } 
+    }
 
-    std::string fname = "file";
-    file.open(fname.c_str());
+    /* std::string fname = "file"; */
+    /* file.open(fname.c_str()); */
 
     int wordc = 0;
     int namec = 0;
